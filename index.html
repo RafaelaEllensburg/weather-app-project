@@ -4,11 +4,144 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>GitHub repo example</title>
+    <title>Weather App - Search Engine</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="src/style.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="shortcut icon" href="#" />
+    <script
+      src="https://kit.fontawesome.com/312c434de3.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <h1>Hello GitHub!</h1>
+    <!-- Container -->
+    <div class="container">
+      <h1 class="visually-hidden">Weather App</h1>
+
+      <!-- Weather app -->
+      <div class="weather-app">
+        <div class="card text-center weather-app">
+          <div class="card-body">
+            <!-- Search Engine -->
+            <div class="search-wrapper">
+              <form>
+                <div class="input-group">
+                  <input
+                    type="search"
+                    class="form-control form-control-lg border-right-0 border border-light"
+                    aria-describedby="inputGroup-sizing-sm"
+                    placeholder="Search city"
+                    id="location-input"
+                  />
+                  <span class="input-group-append">
+                    <button class="btn" type="submit">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                  </span>
+                </div>
+              </form>
+            </div>
+            <!--/.Search Engine -->
+
+            <!-- Button Current location -->
+            <button
+              class="btn btn-link"
+              type="button"
+              id="get-current-location"
+            >
+              <p><i class="fa-solid fa-location-dot"></i> Current location</p>
+            </button>
+            <!--/.Button Current location -->
+
+            <!-- Current weather -->
+            <div class="card text-center">
+              <div class="current-weather">
+                <div class="card-body">
+                  <h2 class="card-title" id="current-location"></h2>
+                  <h3 id="current-date"></h3>
+                  <p id="current-description"></p>
+                  <i class="fa-solid fa-sun fa-6x"></i>
+                  <br />
+                  <p class="card-text" id="current-temperature"></p>
+                  <li id="current-humidity"></li>
+                  <li id="current-wind"></li>
+                </div>
+              </div>
+            </div>
+            <!--/.Current weather -->
+
+            <!-- Forecast carousel -->
+            <div
+              class="carousel slide"
+              data-ride="carousel"
+              id="forecast-carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="row">
+                    <div class="col">
+                      <div class="card text-center">
+                        <div class="card-body">
+                          <h5 class="card-title">Tue</h5>
+                          <i class="fa-solid fa-cloud-sun fa-3x"></i>
+                          <p>15°C</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card text-center">
+                        <div class="card-body">
+                          <h5 class="card-title">Wed</h5>
+                          <i class="fa-solid fa-cloud-sun fa-3x"></i>
+                          <p>16°C</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card text-center">
+                        <div class="card-body">
+                          <h5 class="card-title">Thu</h5>
+                          <i class="fa-solid fa-sun fa-3x"></i>
+                          <p>20°C</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card text-center">
+                        <div class="card-body">
+                          <h5 class="card-title">Fri</h5>
+                          <i class="fa-solid fa-sun fa-3x"></i>
+                          <p>19°C</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card text-center">
+                        <div class="card-body">
+                          <h5 class="card-title">Sat</h5>
+                          <i class="fa-solid fa-cloud-showers-heavy fa-3x"></i>
+                          <p>19°C</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/.Forecast carousel -->
+          </div>
+        </div>
+      </div>
+      <!--/.Weather app -->
+    </div>
+    <!--/.Container -->
+
+    <script src="src/script.js"></script>
   </body>
-  <script src="script.js"></script>
 </html>
