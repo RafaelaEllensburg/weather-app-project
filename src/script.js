@@ -1,6 +1,5 @@
 function formatDate(timestamp) {
   let now = new Date(timestamp);
-
   let currentHour = now.getHours();
   if (currentHour < 10) {
     currentHour = `0${currentHour}`;
@@ -10,6 +9,7 @@ function formatDate(timestamp) {
     currentMinutes = `0${currentMinutes}`;
   }
 
+  let dayIndex = now.getDay();
   let days = [
     "Sunday",
     "Monday",
@@ -19,7 +19,7 @@ function formatDate(timestamp) {
     "Friday",
     "Saturday",
   ];
-  let currentDay = days[now.getDate()];
+  let currentDay = days[dayIndex];
 
   return `${currentDay} ${currentHour}:${currentMinutes}`;
 }
@@ -38,7 +38,7 @@ function showWeatherCondition(response) {
   celsiusTemperature = response.data.main.temp;
 
   currentCity.innerHTML = response.data.name;
-  currentDate.innerHTML = formatDate(response.data.dt * 1000);
+  currentDate.innerHTML = `Updated: ${formatDate(response.data.dt * 1000)}`;
   currentDescription.innerHTML = response.data.weather[0].main;
   currentTemperature.innerHTML = `${Math.round(response.data.main.temp)}°C`;
   currentIcon.setAttribute(
@@ -48,6 +48,7 @@ function showWeatherCondition(response) {
   currentIcon.setAttribute("alt", response.data.weather[0].description);
   currentHumidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   currentWind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} km/h`;
+  console.log(formatDate(response.data.dt * 1000));
 }
 
 // Search engine & API integration
