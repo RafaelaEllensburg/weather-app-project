@@ -22,26 +22,31 @@ function formatDate(date) {
 // Homework
 
 function showWeatherCondition(response) {
-  document.querySelector("#current-location").innerHTML = response.data.name;
-  document.querySelector("#current-temperature").innerHTML = `${Math.round(
-    response.data.main.temp
-  )}°C`;
-  document.querySelector("#current-description").innerHTML =
-    response.data.weather[0].main;
-  document.querySelector(
-    "#current-humidity"
-  ).innerHTML = `Humidity: ${response.data.main.humidity}%`;
-  document.querySelector("#current-wind").innerHTML = `Wind: ${Math.round(
-    response.data.wind.speed
-  )} km/h`;
+  let currentCity = document.querySelector("#current-location");
+  let currentDate = document.querySelector("#current-date");
+  let currentTime = new Date();
+  let currentDescription = document.querySelector("#current-description");
+  let currentTemperature = document.querySelector("#current-temperature");
+  let currentIcon = document.querySelector("#current-weather-icon");
+  let currentHumidity = document.querySelector("#current-humidity");
+  let currentWind = document.querySelector("#current-wind");
 
-  let iconElement = document.querySelector("#current-weather-icon");
-  iconElement.setAttribute(
+  celsiusTemperature = response.data.main.temp;
+
+  currentCity.innerHTML = response.data.name;
+  currentDate.innerHTML = formatDate(currentTime);
+  currentDescription.innerHTML = response.data.weather[0].main;
+  currentTemperature.innerHTML = `${Math.round(response.data.main.temp)}°C`;
+  currentIcon.setAttribute(
     "src",
     `/images/${response.data.weather[0].icon}.svg`
   );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
+  currentIcon.setAttribute("alt", response.data.weather[0].description);
+  currentHumidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
+  currentWind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} km/h`;
 }
+
+// Search engine & API integration
 
 function searchCity(city) {
   let apiKey = "fab526fa46488b80d2e756d709629e24";
@@ -67,10 +72,6 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchPosition);
 }
 
-let dateElement = document.querySelector("#current-date");
-let currentTime = new Date();
-dateElement.innerHTML = formatDate(currentTime);
-
 let form = document.querySelector("form");
 form.addEventListener("submit", handleSubmit);
 
@@ -78,3 +79,32 @@ let currentLocationbutton = document.querySelector("#get-current-location");
 currentLocationbutton.addEventListener("click", getCurrentLocation);
 
 searchCity("Amsterdam");
+
+// Unit conversion
+
+function toggleTemperatureCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temperature");
+  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}°C`;
+
+  celsiusToggle.classList.add("active", "btn-primary");
+  fahrenheitToggle.classList.remove("active", "btn-primary");
+}
+
+function toggleTemperatureFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temperature");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = `${Math.round(fahrenheitTemperature)}°F`;
+
+  celsiusToggle.classList.remove("active", "btn-primary");
+  fahrenheitToggle.classList.add("active", "btn-primary");
+}
+
+let celsiusTemperature = null;
+
+let celsiusToggle = document.querySelector("#celsius-toggle");
+celsiusToggle.addEventListener("click", toggleTemperatureCelsius);
+
+let fahrenheitToggle = document.querySelector("#fahrenheit-toggle");
+fahrenheitToggle.addEventListener("click", toggleTemperatureFahrenheit);

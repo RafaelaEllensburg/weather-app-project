@@ -90,6 +90,11 @@ h2#current-location {
   font-weight: bold;
 }
 
+.btn-group {
+  border: 1px solid;
+  border-radius: 0.25rem;
+}
+
 .toggle.android {
   border-radius: 0px;
 }

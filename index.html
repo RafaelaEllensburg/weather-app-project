@@ -69,6 +69,31 @@
                   <img src="" alt="" class="center" id="current-weather-icon" />
                   <br />
                   <p class="card-text" id="current-temperature"></p>
+
+                  <!-- Unit conversion toggle -->
+                  <div
+                    class="btn-group btn-group-toggle"
+                    data-toggle="buttons"
+                    aria-pressed="true"
+                  >
+                    <label
+                      class="btn btn-primary btn-sm active"
+                      id="celsius-toggle"
+                    >
+                      <input
+                        type="radio"
+                        name="options"
+                        autocomplete="off"
+                        checked
+                      />
+                      Celsius
+                    </label>
+                    <label class="btn btn-sm" id="fahrenheit-toggle">
+                      <input type="radio" name="options" autocomplete="off" />
+                      Fahrenheit
+                    </label>
+                  </div>
+                  <!--/. Unit conversion toggle -->
                   <li id="current-humidity"></li>
                   <li id="current-wind"></li>
                 </div>
