@@ -36,9 +36,11 @@ div.search-wrapper {
 div.current-weather {
   display: block;
   margin: 0 auto;
-  padding: 0% 15% 0% 15%;
+  padding: 0% 9%;
   border: 1px solid;
   border-radius: 3rem;
+  overflow: visible;
+  background-color: rgb(255 255 255 / 80%);
 }
 
 form {
