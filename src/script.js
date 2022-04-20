@@ -48,7 +48,6 @@ function showWeatherCondition(response) {
   currentIcon.setAttribute("alt", response.data.weather[0].description);
   currentHumidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   currentWind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} km/h`;
-  console.log(formatDate(response.data.dt * 1000));
 }
 
 // Search engine & API integration
