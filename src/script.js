@@ -1,10 +1,15 @@
-function formatDate(date) {
-  let now = new Date();
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
 
   let currentHour = now.getHours();
-  let currentMinutes = String(now.getMinutes()).padStart(2, "0");
+  if (currentHour < 10) {
+    currentHour = `0${currentHour}`;
+  }
+  let currentMinutes = now.getMinutes();
+  if (currentMinutes < 10) {
+    currentMinutes = `0${currentMinutes}`;
+  }
 
-  let dayIndex = date.getDay();
   let days = [
     "Sunday",
     "Monday",
@@ -14,7 +19,7 @@ function formatDate(date) {
     "Friday",
     "Saturday",
   ];
-  let currentDay = days[dayIndex];
+  let currentDay = days[now.getDate()];
 
   return `${currentDay} ${currentHour}:${currentMinutes}`;
 }
@@ -24,7 +29,6 @@ function formatDate(date) {
 function showWeatherCondition(response) {
   let currentCity = document.querySelector("#current-location");
   let currentDate = document.querySelector("#current-date");
-  let currentTime = new Date();
   let currentDescription = document.querySelector("#current-description");
   let currentTemperature = document.querySelector("#current-temperature");
   let currentIcon = document.querySelector("#current-weather-icon");
@@ -34,7 +38,7 @@ function showWeatherCondition(response) {
   celsiusTemperature = response.data.main.temp;
 
   currentCity.innerHTML = response.data.name;
-  currentDate.innerHTML = formatDate(currentTime);
+  currentDate.innerHTML = formatDate(response.data.dt * 1000);
   currentDescription.innerHTML = response.data.weather[0].main;
   currentTemperature.innerHTML = `${Math.round(response.data.main.temp)}°C`;
   currentIcon.setAttribute(
@@ -56,8 +60,8 @@ function searchCity(city) {
 
 function handleSubmit(event) {
   event.preventDefault();
-  let city = document.querySelector("#location-input").value;
-  searchCity(city);
+  let city = document.querySelector("#location-input");
+  searchCity(city.value);
 }
 
 function searchPosition(position) {
