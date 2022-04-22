@@ -15,8 +15,6 @@
 
 div.card.text-center {
   border: none;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 div.card.text-center.weather-app {
@@ -28,8 +26,13 @@ div.card.text-center.weather-app {
 div.search-wrapper {
   display: block;
   margin: 0 auto;
-  padding: 1% 10% 1% 10%;
+  padding: 1% 20% 1% 20%;
 }
+
+#location-input {
+  font-size: small;
+}
+
 div.current-weather {
   display: block;
   margin: 0 auto;
@@ -116,8 +119,19 @@ div.row {
   padding: 0% 10% 0% 10%;
 }
 
-h5.card-title {
+div.col {
+  padding: 1px;
+}
+
+h5.card-title,
+p.weather-forecast-temperature {
   margin: 0 auto;
+  font-size: small;
+}
+
+img#forecast-weather-icon {
+  width: 50%;
+  height: auto;
 }
 
 p.link-github {
