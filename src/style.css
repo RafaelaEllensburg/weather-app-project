@@ -9,6 +9,10 @@
   width: 1px;
 }
 
+body {
+  background-color: #f9f7fe;
+}
+
 .weather-app {
   padding: 20px;
 }

@@ -24,7 +24,7 @@ function formatDate(timestamp) {
   return `${currentDay} ${currentHour}:${currentMinutes}`;
 }
 
-// Homework
+// Current weather
 
 function showWeatherCondition(response) {
   let currentCity = document.querySelector("#current-location");
@@ -54,6 +54,38 @@ function showWeatherCondition(response) {
   forecastIcon.setAttribute("alt", response.data.weather[0].description);
   currentHumidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   currentWind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} km/h`;
+}
+
+// Forecast
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row w-75">`;
+  let days = ["Sat", "Sun", "Mon", "Tue", "Wed"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+                <div class="col">
+                  <div class="card text-center">
+                    <div class="card-body" id="forecast-card-body">
+                      <h5 class="card-title" id="weather-forecast-date">${day}</h5>
+                      <img
+                        src=""
+                        alt=""
+                        class="center"
+                        id="forecast-weather-icon"
+                      />
+                      <p class="weather-forecast-temperature">15°C</p>
+                    </div>
+                  </div>
+                </div>
+            `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 // Search engine & API integration
@@ -89,6 +121,8 @@ let currentLocationbutton = document.querySelector("#get-current-location");
 currentLocationbutton.addEventListener("click", getCurrentLocation);
 
 searchCity("Amsterdam");
+
+displayForecast();
 
 // Unit conversion
 
