@@ -24,6 +24,15 @@ function formatDate(timestamp) {
   return `${currentDay} ${currentHour}:${currentMinutes}`;
 }
 
+// Forecast
+
+function getForecast(coordinates) {
+  let apiKey = "fab526fa46488b80d2e756d709629e24";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 // Current weather
 
 function showWeatherCondition(response) {
@@ -32,7 +41,7 @@ function showWeatherCondition(response) {
   let currentDescription = document.querySelector("#current-description");
   let currentTemperature = document.querySelector("#current-temperature");
   let currentIcon = document.querySelector("#current-weather-icon");
-  let forecastIcon = document.querySelector("#forecast-weather-icon");
+  // let forecastIcon = document.querySelector("#forecast-weather-icon");
   let currentHumidity = document.querySelector("#current-humidity");
   let currentWind = document.querySelector("#current-wind");
 
@@ -47,22 +56,27 @@ function showWeatherCondition(response) {
     `/images/${response.data.weather[0].icon}.svg`
   );
   currentIcon.setAttribute("alt", response.data.weather[0].description);
-  forecastIcon.setAttribute(
-    "src",
-    `/images/${response.data.weather[0].icon}.svg`
-  );
-  forecastIcon.setAttribute("alt", response.data.weather[0].description);
+  // forecastIcon.setAttribute(
+  //  "src",
+  //  `/images/${response.data.weather[0].icon}.svg`
+  //);
+  // forecastIcon.setAttribute("alt", response.data.weather[0].description);
   currentHumidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   currentWind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} km/h`;
+
+  getForecast(response.data.coord);
 }
 
 // Forecast
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
-  let forecastHTML = `<div class="row w-75">`;
   let days = ["Sat", "Sun", "Mon", "Tue", "Wed"];
+
+  let forecastHTML = `<div class="row w-75">`;
+
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
@@ -121,8 +135,6 @@ let currentLocationbutton = document.querySelector("#get-current-location");
 currentLocationbutton.addEventListener("click", getCurrentLocation);
 
 searchCity("Amsterdam");
-
-displayForecast();
 
 // Unit conversion
 
