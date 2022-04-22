@@ -51,9 +51,9 @@ function showWeatherCondition(response) {
   let currentDescription = document.querySelector("#current-description");
   let currentTemperature = document.querySelector("#current-temperature");
   let currentIcon = document.querySelector("#current-weather-icon");
-  // let forecastIcon = document.querySelector("#forecast-weather-icon");
   let currentHumidity = document.querySelector("#current-humidity");
   let currentWind = document.querySelector("#current-wind");
+  let currentBackground = document.querySelector("#current-weather-background");
 
   celsiusTemperature = response.data.main.temp;
 
@@ -66,11 +66,10 @@ function showWeatherCondition(response) {
     `/images/${response.data.weather[0].icon}.svg`
   );
   currentIcon.setAttribute("alt", response.data.weather[0].description);
-  // forecastIcon.setAttribute(
-  //  "src",
-  //  `/images/${response.data.weather[0].icon}.svg`
-  //);
-  // forecastIcon.setAttribute("alt", response.data.weather[0].description);
+  currentBackground.setAttribute(
+    "style",
+    `background-image: url("/images/${response.data.weather[0].icon}-background.svg"); background-repeat: no-repeat; background-size: cover`
+  );
   currentHumidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   currentWind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} km/h`;
 
@@ -99,7 +98,7 @@ function displayForecast(response) {
                       )}</h5>
                       <img
                         src="/images/${forecastDay.weather[0].icon}.svg"
-                        alt=""
+                        alt="${forecastDay.weather[0].description}"
                         class="center"
                         id="forecast-weather-icon"
                       />
