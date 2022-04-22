@@ -15,6 +15,8 @@
 
 div.card.text-center {
   border: none;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 div.card.text-center.weather-app {
@@ -23,15 +25,10 @@ div.card.text-center.weather-app {
   box-shadow: 3px 3px 15px #cecece;
 }
 
-div#search-engine-card-body,
-div#current-weather-card-body {
-  padding: 20px;
-}
-
 div.search-wrapper {
   display: block;
   margin: 0 auto;
-  padding: 1% 22% 1% 22%;
+  padding: 1% 10% 1% 10%;
 }
 div.current-weather {
   display: block;
@@ -70,16 +67,19 @@ i {
 
 li {
   list-style: none;
+  font-size: small;
+}
+
+li#current-humidity {
+  margin-top: 5%;
 }
 
 h3#current-date {
-  padding-bottom: 5px;
-  font-size: medium;
+  font-size: small;
 }
 
 p#current-temperature {
   font-size: x-large;
-  padding-top: 5px;
 }
 
 div#forecast-card-body {
@@ -90,6 +90,7 @@ p#current-description,
 h2#current-location {
   font-size: x-large;
   font-weight: bold;
+  margin-bottom: 2%;
 }
 
 .btn-group {
@@ -112,7 +113,11 @@ button#get-current-location {
 
 div.row {
   margin: 0 auto;
-  padding: 2% 10% 0% 10%;
+  padding: 0% 10% 0% 10%;
+}
+
+h5.card-title {
+  margin: 0 auto;
 }
 
 p.link-github {

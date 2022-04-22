@@ -64,7 +64,6 @@
               class="card text-center"
               style="
                 background-image: url(/images/undraw_sunny_day_re_gyxr.svg);
-                background-size: cover;
               "
             >
               <div class="current-weather">
@@ -73,7 +72,6 @@
                   <h3 id="current-date"></h3>
                   <p id="current-description"></p>
                   <img src="" alt="" class="center" id="current-weather-icon" />
-                  <br />
                   <p class="card-text" id="current-temperature"></p>
 
                   <!-- Unit conversion toggle -->
@@ -107,65 +105,62 @@
             </div>
             <!--/.Current weather -->
 
-            <!-- Forecast carousel -->
-            <div
-              class="carousel slide"
-              data-ride="carousel"
-              id="forecast-carousel"
-            >
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <div class="row">
-                    <div class="col">
-                      <div class="card text-center">
-                        <div class="card-body" id="forecast-card-body">
-                          <h5 class="card-title">Tue</h5>
-                          <i class="fa-solid fa-cloud-sun fa-3x"></i>
-                          <p>15°C</p>
-                        </div>
-                      </div>
+            <!-- Forecast weather -->
+            <div class="weather-forecast">
+              <div class="row">
+                <div class="col">
+                  <div class="card text-center">
+                    <div class="card-body" id="forecast-card-body">
+                      <h5 class="card-title" id="weather-forecast-date">Tue</h5>
+                      <img
+                        src=""
+                        alt=""
+                        class="center"
+                        id="forecast-weather-icon"
+                      />
+                      <p class="weather-forecast-temperature">15°C</p>
                     </div>
-                    <div class="col">
-                      <div class="card text-center">
-                        <div class="card-body" id="forecast-card-body">
-                          <h5 class="card-title">Wed</h5>
-                          <i class="fa-solid fa-cloud-sun fa-3x"></i>
-                          <p>16°C</p>
-                        </div>
-                      </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card text-center">
+                    <div class="card-body" id="forecast-card-body">
+                      <h5 class="card-title">Wed</h5>
+                      <i class="fa-solid fa-cloud-sun fa-3x"></i>
+                      <p>16°C</p>
                     </div>
-                    <div class="col">
-                      <div class="card text-center">
-                        <div class="card-body" id="forecast-card-body">
-                          <h5 class="card-title">Thu</h5>
-                          <i class="fa-solid fa-sun fa-3x"></i>
-                          <p>20°C</p>
-                        </div>
-                      </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card text-center">
+                    <div class="card-body" id="forecast-card-body">
+                      <h5 class="card-title">Thu</h5>
+                      <i class="fa-solid fa-sun fa-3x"></i>
+                      <p>20°C</p>
                     </div>
-                    <div class="col">
-                      <div class="card text-center">
-                        <div class="card-body" id="forecast-card-body">
-                          <h5 class="card-title">Fri</h5>
-                          <i class="fa-solid fa-sun fa-3x"></i>
-                          <p>19°C</p>
-                        </div>
-                      </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card text-center">
+                    <div class="card-body" id="forecast-card-body">
+                      <h5 class="card-title">Fri</h5>
+                      <i class="fa-solid fa-sun fa-3x"></i>
+                      <p>19°C</p>
                     </div>
-                    <div class="col">
-                      <div class="card text-center">
-                        <div class="card-body" id="forecast-card-body">
-                          <h5 class="card-title">Sat</h5>
-                          <i class="fa-solid fa-cloud-showers-heavy fa-3x"></i>
-                          <p>19°C</p>
-                        </div>
-                      </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card text-center">
+                    <div class="card-body" id="forecast-card-body">
+                      <h5 class="card-title">Sat</h5>
+                      <i class="fa-solid fa-cloud-showers-heavy fa-3x"></i>
+                      <p>19°C</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!--/.Forecast carousel -->
+            <!--/.Forecast weather -->
           </div>
         </div>
       </div>

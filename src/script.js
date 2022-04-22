@@ -32,6 +32,7 @@ function showWeatherCondition(response) {
   let currentDescription = document.querySelector("#current-description");
   let currentTemperature = document.querySelector("#current-temperature");
   let currentIcon = document.querySelector("#current-weather-icon");
+  let forecastIcon = document.querySelector("#forecast-weather-icon");
   let currentHumidity = document.querySelector("#current-humidity");
   let currentWind = document.querySelector("#current-wind");
 
@@ -46,6 +47,11 @@ function showWeatherCondition(response) {
     `/images/${response.data.weather[0].icon}.svg`
   );
   currentIcon.setAttribute("alt", response.data.weather[0].description);
+  forecastIcon.setAttribute(
+    "src",
+    `/images/${response.data.weather[0].icon}.svg`
+  );
+  forecastIcon.setAttribute("alt", response.data.weather[0].description);
   currentHumidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   currentWind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} km/h`;
 }
