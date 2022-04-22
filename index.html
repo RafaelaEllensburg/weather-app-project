@@ -20,104 +20,116 @@
     ></script>
   </head>
   <body>
-    <!-- Container -->
-    <div class="container">
-      <h1 class="visually-hidden">Weather App</h1>
+    <div class="background">
+      <!-- Container -->
+      <div class="container">
+        <h1 class="visually-hidden">Weather App</h1>
 
-      <!-- Weather app -->
-      <div class="weather-app">
-        <div class="card text-center weather-app">
-          <div class="card-body" id="search-engine-card-body">
-            <!-- Search Engine -->
-            <div class="search-wrapper">
-              <form>
-                <div class="input-group">
-                  <input
-                    type="search"
-                    class="form-control form-control-lg border-right-0 border border-light"
-                    aria-describedby="inputGroup-sizing-sm"
-                    placeholder="Search city"
-                    id="location-input"
-                  />
-                  <span class="input-group-append">
-                    <button class="btn" type="submit">
-                      <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                  </span>
-                </div>
-              </form>
-            </div>
-            <!--/.Search Engine -->
-
-            <!-- Button Current location -->
-            <button
-              class="btn btn-link"
-              type="button"
-              id="get-current-location"
-            >
-              <p><i class="fa-solid fa-location-dot"></i> Current location</p>
-            </button>
-            <!--/.Button Current location -->
-
-            <!-- Current weather -->
-            <div class="card text-center" id="current-weather-background">
-              <div class="current-weather">
-                <div class="card-body" id="current-weather-card-body">
-                  <h2 class="card-title" id="current-location"></h2>
-                  <h3 id="current-date"></h3>
-                  <p id="current-description"></p>
-                  <img src="" alt="" class="center" id="current-weather-icon" />
-                  <p class="card-text" id="current-temperature"></p>
-
-                  <!-- Unit conversion toggle -->
-                  <div
-                    class="btn-group btn-group-toggle"
-                    data-toggle="buttons"
-                    aria-pressed="true"
-                  >
-                    <label
-                      class="btn btn-primary btn-sm active"
-                      id="celsius-toggle"
-                    >
-                      <input
-                        type="radio"
-                        name="options"
-                        autocomplete="off"
-                        checked
-                      />
-                      Celsius
-                    </label>
-                    <label class="btn btn-sm" id="fahrenheit-toggle">
-                      <input type="radio" name="options" autocomplete="off" />
-                      Fahrenheit
-                    </label>
+        <!-- Weather app -->
+        <div class="weather-app">
+          <div class="card text-center weather-app">
+            <div class="card-body" id="search-engine-card-body">
+              <!-- Search Engine -->
+              <div class="search-wrapper">
+                <form>
+                  <div class="input-group">
+                    <input
+                      type="search"
+                      class="form-control form-control-lg border-right-0 border border-light"
+                      aria-describedby="inputGroup-sizing-sm"
+                      placeholder="Search city"
+                      id="location-input"
+                    />
+                    <span class="input-group-append">
+                      <button class="btn" type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                      </button>
+                    </span>
                   </div>
-                  <!--/. Unit conversion toggle -->
-                  <li id="current-humidity"></li>
-                  <li id="current-wind"></li>
+                </form>
+              </div>
+              <!--/.Search Engine -->
+
+              <!-- Button Current location -->
+              <button
+                class="btn btn-link"
+                type="button"
+                id="get-current-location"
+              >
+                <p>
+                  <i class="fa-solid fa-location-crosshairs"></i> Your location
+                </p>
+              </button>
+              <!--/.Button Current location -->
+
+              <!-- Current weather -->
+              <div class="card text-center" id="current-weather-background">
+                <div class="current-weather">
+                  <div class="card-body" id="current-weather-card-body">
+                    <h2 class="card-title" id="current-location"></h2>
+                    <h3 id="current-date"></h3>
+                    <p id="current-description"></p>
+                    <img
+                      src=""
+                      alt=""
+                      class="center"
+                      id="current-weather-icon"
+                    />
+                    <p class="card-text" id="current-temperature"></p>
+
+                    <!-- Unit conversion toggle -->
+                    <div
+                      class="btn-group btn-group-toggle rounded-pill border-secondary"
+                      data-toggle="buttons"
+                      aria-pressed="true"
+                    >
+                      <label
+                        class="btn btn-primary btn-sm active rounded-pill"
+                        id="celsius-toggle"
+                      >
+                        <input
+                          type="radio"
+                          name="options"
+                          autocomplete="off"
+                          checked
+                        />
+                        C°
+                      </label>
+                      <label
+                        class="btn btn-sm rounded-pill"
+                        id="fahrenheit-toggle"
+                      >
+                        <input type="radio" name="options" autocomplete="off" />
+                        F°
+                      </label>
+                    </div>
+                    <!--/. Unit conversion toggle -->
+                    <li id="current-humidity"></li>
+                    <li id="current-wind"></li>
+                  </div>
                 </div>
               </div>
-            </div>
-            <!--/.Current weather -->
+              <!--/.Current weather -->
 
-            <!-- Forecast weather -->
-            <div class="weather-forecast" id="forecast"></div>
-            <!--/.Forecast weather -->
+              <!-- Forecast weather -->
+              <div class="weather-forecast" id="forecast"></div>
+              <!--/.Forecast weather -->
+            </div>
           </div>
         </div>
+        <!--/.Weather app -->
+        <p class="link-github">
+          <a
+            href="https://github.com/RafaelaEllensburg/weather-app-project"
+            target="_blank"
+            >Open-source code</a
+          >
+          by Rafaela Ellensburg
+        </p>
       </div>
-      <!--/.Weather app -->
-      <p class="link-github">
-        <a
-          href="https://github.com/RafaelaEllensburg/weather-app-project"
-          target="_blank"
-          >Open-source code</a
-        >
-        by Rafaela Ellensburg
-      </p>
-    </div>
-    <!--/.Container -->
+      <!--/.Container -->
 
-    <script src="src/script.js"></script>
+      <script src="src/script.js"></script>
+    </div>
   </body>
 </html>
