@@ -173,7 +173,7 @@ p.weather-forecast-temperature {
 }
 
 img#forecast-weather-icon {
-  width: 75%;
+  width: 3rem;
   height: 100%;
 }
 
