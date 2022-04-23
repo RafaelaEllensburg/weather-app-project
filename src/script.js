@@ -67,7 +67,7 @@ function showWeatherCondition(response) {
   currentIcon.setAttribute("alt", response.data.weather[0].description);
   currentBackground.setAttribute(
     "style",
-    `background-image: url("/images/${response.data.weather[0].icon}-background.svg"); background-repeat: no-repeat; background-size: cover; background-color: transparent`
+    `background-image: url("/images/${response.data.weather[0].icon}-background.svg"); background-repeat: no-repeat; background-size: contain; background-position-x: 25%; background-position-y: center; background-color: transparent`
   );
   currentHumidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   currentWind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} km/h`;
