@@ -163,7 +163,7 @@ div.row {
 }
 
 div.col {
-  padding: 1px;
+  padding: 10px;
 }
 
 h5.card-title,
@@ -174,7 +174,7 @@ p.weather-forecast-temperature {
 
 img#forecast-weather-icon {
   width: 75%;
-  height: auto;
+  height: 100%;
 }
 
 p.link-github {
