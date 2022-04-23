@@ -67,7 +67,7 @@ function showWeatherCondition(response) {
   currentIcon.setAttribute("alt", response.data.weather[0].description);
   currentBackground.setAttribute(
     "style",
-    `background-image: url("/images/${response.data.weather[0].icon}-background.svg"); background-repeat: no-repeat; background-size: cover`
+    `background-image: url("/images/${response.data.weather[0].icon}-background.svg"); background-repeat: no-repeat; background-size: cover; background-color: transparent`
   );
   currentHumidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   currentWind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} km/h`;
@@ -177,3 +177,9 @@ celsiusToggle.addEventListener("click", toggleTemperatureCelsius);
 
 let fahrenheitToggle = document.querySelector("#fahrenheit-toggle");
 fahrenheitToggle.addEventListener("click", toggleTemperatureFahrenheit);
+
+document.querySelector(".dark-mode-container").addEventListener("click", () => {
+  document.querySelector(".container").classList.toggle("dark");
+  document.querySelector(".background").classList.toggle("dark");
+  document.querySelector(".current-weather").classList.toggle("light");
+});
