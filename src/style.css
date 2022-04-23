@@ -102,6 +102,7 @@ img#current-weather-icon {
   display: block;
   margin: 0 auto;
   padding: 1px;
+  width: 6rem;
 }
 
 i {
@@ -174,7 +175,6 @@ p.weather-forecast-temperature {
 
 img#forecast-weather-icon {
   width: 3rem;
-  height: 100%;
 }
 
 p.link-github {
