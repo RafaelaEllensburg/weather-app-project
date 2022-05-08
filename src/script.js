@@ -103,7 +103,9 @@ function displayForecast(response) {
                       />
                       <p class="weather-forecast-temperature">${Math.round(
                         forecastDay.temp.max
-                      )}°C</p>
+                      )}°C</p><p class="weather-forecast-temperature">${Math.round(
+          forecastDay.temp.max * 1.8 + 32
+        )}°F</p>
                     </div>
                   </div>
                 </div>
