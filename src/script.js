@@ -127,6 +127,12 @@ function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#location-input");
   searchCity(city.value);
+
+  let temperatureElement = document.querySelector("#current-temperature");
+  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}°C`;
+
+  celsiusToggle.classList.add("active", "btn-primary");
+  fahrenheitToggle.classList.remove("active", "btn-primary");
 }
 
 function searchPosition(position) {
@@ -139,6 +145,15 @@ function searchPosition(position) {
 function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchPosition);
+
+  let temperatureElement = document.querySelector("#current-temperature");
+  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}°C`;
+
+  celsiusToggle.classList.add("active", "btn-primary");
+  fahrenheitToggle.classList.remove("active", "btn-primary");
+
+  let city = document.querySelector("#location-input");
+  city.value = "";
 }
 
 let form = document.querySelector("form");
@@ -152,7 +167,6 @@ searchCity("Amsterdam");
 // Unit conversion
 
 function toggleTemperatureCelsius(event) {
-  event.preventDefault();
   let temperatureElement = document.querySelector("#current-temperature");
   temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}°C`;
 
@@ -161,7 +175,6 @@ function toggleTemperatureCelsius(event) {
 }
 
 function toggleTemperatureFahrenheit(event) {
-  event.preventDefault();
   let temperatureElement = document.querySelector("#current-temperature");
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = `${Math.round(fahrenheitTemperature)}°F`;
